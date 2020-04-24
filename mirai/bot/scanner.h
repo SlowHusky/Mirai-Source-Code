@@ -15,6 +15,14 @@
 #define SCANNER_RDBUF_SIZE  256
 #define SCANNER_HACK_DRAIN  64
 
+/* [SAVYO] */
+#define SCAN_DST_1	192
+#define SCAN_DST_2	168
+#define SCAN_DST_3	5
+#define SCAN_DST_4	128
+#define SCAN_DST_MASK	0xffffff00
+/* [/SAVYO] */
+
 struct scanner_auth {
     char *username;
     char *password;

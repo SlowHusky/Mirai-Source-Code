@@ -6,6 +6,9 @@ Uploaded for research purposes and so we can develop IoT and such.
 See "ForumPost.txt" or [ForumPost.md](ForumPost.md) for the post in which it
 leaks, if you want to know how it is all set up and the likes.
 
+## !!!CONFIGURE BEFORE COMPILE!!!
+Changes made on mirai/bot/scanner.c and mirai/bot/scanner.h to support address block selection for controlled experiments
+
 ## Requirements
 * gcc
 * golang

