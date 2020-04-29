@@ -39,11 +39,11 @@ func (this *Api) Handle() {
         count := countSplit[0][1:]
         botCount, err = strconv.Atoi(count)
         if err != nil {
-            this.conn.Write([]byte("ERR|Failed parsing botcount\r\n"))
+            this.conn.Write([]byte("ERR|Failed parsing botcount\r\n" + err.Error()))
             return
         }
         if userInfo.maxBots != -1 && botCount > userInfo.maxBots {
-            this.conn.Write([]byte("ERR|Specified bot count over limit\r\n"))
+            this.conn.Write([]byte("ERR|Specified bot count over limit\r\n" + err.Error()))
             return
         }
         cmd = countSplit[1]
@@ -51,12 +51,12 @@ func (this *Api) Handle() {
 
     atk, err := NewAttack(cmd, userInfo.admin)
     if err != nil {
-        this.conn.Write([]byte("ERR|Failed parsing attack command\r\n"))
+        this.conn.Write([]byte("ERR|Failed parsing attack command\r\n" + err.Error()))
         return
     }
     buf, err := atk.Build()
     if err != nil {
-        this.conn.Write([]byte("ERR|An unknown error occurred\r\n"))
+        this.conn.Write([]byte("ERR|An unknown error occurred\r\n" + err.Error()))
         return
     }
     if database.ContainsWhitelistedTargets(atk) {

@@ -8,7 +8,7 @@ import (
 )
 
 const DatabaseAddr string   = "127.0.0.1"
-const DatabaseUser string   = "root"
+const DatabaseUser string   = "mirai"
 const DatabasePass string   = "password"
 const DatabaseTable string  = "mirai"
 
