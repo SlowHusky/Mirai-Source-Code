@@ -1,4 +1,8 @@
 CREATE DATABASE mirai;
+USE mirai;
+
+CREATE USER 'mirai'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'mirai'@'localhost';
 
 CREATE TABLE `history` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
