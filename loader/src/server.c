@@ -288,8 +288,8 @@ static void handle_event(struct server_worker *wrker, struct epoll_event *ev)
                         consumed = connection_consume_login_prompt(conn);
                         if (consumed)
                         {
-                            util_sockprintf(conn->fd, "%s", conn->info.user);
-                            strcpy(conn->output_buffer.data, "\r\n");
+                            util_sockprintf(conn->fd, "%s\r\n", conn->info.user);
+                            //strcpy(conn->output_buffer.data, "\r\n");
                             conn->output_buffer.deadline = time(NULL) + 1;
                             conn->state_telnet = TELNET_PASS_PROMPT;
                         }
@@ -298,8 +298,8 @@ static void handle_event(struct server_worker *wrker, struct epoll_event *ev)
                         consumed = connection_consume_password_prompt(conn);
                         if (consumed)
                         {
-                            util_sockprintf(conn->fd, "%s", conn->info.pass);
-                            strcpy(conn->output_buffer.data, "\r\n");
+                            util_sockprintf(conn->fd, "%s\r\n", conn->info.pass);
+                            //strcpy(conn->output_buffer.data, "\r\n");
                             conn->output_buffer.deadline = time(NULL) + 1;
                             conn->state_telnet = TELNET_WAITPASS_PROMPT; // At the very least it will print SOMETHING
                         }
