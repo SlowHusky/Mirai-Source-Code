@@ -4,7 +4,7 @@ Código fonte do Linux.Mirai vazado para pesquisa/desenvimento de IoT.
 Uploads feito para fins de pesquisa e podemos desenvolver IoT entre outros.
 
 Veja "ForumPost.txt" ou [ForumPost.md](ForumPost.md) para o post do vazamento, 
-se você quer saber como tudo foi realizado e os likes. (Post deletado no fórum).
+se você quer saber como tudo foi realizado e os likes. (Post deletado no fórum original, mas disponível nesse repositório).
 
 ## !!!CONFIGURE ANTES DE COMPILAR!!!
 Mudanças feitas no mirai/bot/scanner.c e no mirai/bot/scanner.h  para suportar a seleção dos endereços de bloco para experimentos controlados.
