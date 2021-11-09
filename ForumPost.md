@@ -15,7 +15,7 @@ Eu fiz o meu primeiro dinheiro, tem muitos olhos olhando para IoT agora, então 
 De qualquer forma, eu conheço todo garoto e sua mãe, eles tem um sonho molhado de ter algo além do Qbot(um malware).
 
 Então hoje, eu tenho um incrível lançamento para vocês. Com Mirai, eu usualmente subo no máximo
-380k de bots da telnet sozinha. Contudo, depois do Kreb DDoS, ISOs tem lentamente desligando e limpando seus atos.
+380k de bots da telnet sozinha. Contudo, depois do Kreb DDoS, ISPs tem lentamente desligando e limpando seus atos.
 Hoje, o máximo de máquinas que subo fica por volta de 300k de bots, e diminuindo.
 
 Então, eu sou sua senpai, e eu vou te tratar bem legal, meu hf-chan.
@@ -35,18 +35,18 @@ realmente falhou completamente e totalmente em reverter esse binário.
 e ainda me confundiu em alguns binários diferentes. LOL
 
 Deixem me dar em você alguns tapas de volta -
-1. Porta  `48101`  não é para back connect, é um controle para prevenir múltiplas
- instâncias do bot rodar juntas
+1. Porta  `48101`  não é para back connect, é um controle para prevenir que múltiplas
+ instâncias do bot rodem juntas
 
-2. `/dev/watchdog` e `/dev/misc` não são para "fazer o dalay", é para prevenir 
-que o sistema congele (nota, em inglês está o termo hanging). Isso é um low-hanging fruit,
+2. `/dev/watchdog` e `/dev/misc` não são para "fazer o delay", é para prevenir 
+que o sistema congele (nota, em inglês está o termo hanging). Isso é uma fruta baixa no pé,
 é muito triste que você seja extremamente burro.
 
 3. Você falhou e pensou que `FAKE_CNC_ADDR` e `FAKE_CNC_PORT` era o real CNC, lol
 "E fazia o backdor se conectando via HTTP na 65.222.202.53". Você tropeçou no fluxo de sinal ;)
 tente melhor criança
 
-4. Seu esqueleto da ferramenta chupa cu, ele pensa que o attacke decodificado como "sinden style",
+4. Seu esqueleto da ferramenta chupa cu, ele pensa que o ataque decodificado como "sinden style",
 mas ele nem mesmo usa um protocolo text-based? CNC e bot se cominicam sobre um protocolo binário
 
 5. Você disse 'chroot("/") tão previsível como torlus' mas você não entendeu, outros
@@ -93,7 +93,7 @@ Isso é ligado com um servidor separado que é automaticamente carregado nos dis
 é usada para receber resultados brutos (eu estava tendo aproximadamente 500 resultados brutos por segundo no pico).
 
 
-Mirai utiliza um mecanismo de espalhamento similar a se auto replicar, porém eu chamop de
+Mirai utiliza um mecanismo de espalhamento similar a se auto replicar, porém eu chamo de
 "real-time-load". Basicamente, bots de resultados brutos, enviam para um servidor escutando com 
 o mecanismo `scanListen`, o qual envia resultados para o loader. Esse loop (`brute -> scanListen -> load -> brute`) é conhecido como o tempo real de carregamento.
 
@@ -110,8 +110,8 @@ existem algumas opções que você *precisa* mudar para continuar funcionando.
 
 
 * `TABLE_CNC_DOMAIN` - Domain name do CNC para conecta para - evitador de DDoS bem divertido com a mirai
-  Domain name of CNC to connect to - DDoS avoidance é muito divertido com mirai, as pessoas tentão se
-  conectar com meu CNC mas eu atualizo mais rápido do que eles conseguem achar meu novo endereço de IPs, 
+   muito divertido com mirai, as pessoas tentão se
+   conectar com meu CNC mas eu atualizo mais rápido do que eles conseguem achar meu novo endereço de IPs, 
   lol. Retardados :)
 * `TABLE_CNC_PORT` - Porta para conectar para, já definida na 23
 * `TABLE_SCAN_CB_DOMAIN` - Quando encontra resultados brutos, esse domínio é reportado para
